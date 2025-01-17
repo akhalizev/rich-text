@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Trix Editor Custom Styles */
+.trix-content {
+  @apply prose max-w-none;
+}
+
+.trix-button-group {
+  @apply border border-gray-300 rounded-md overflow-hidden;
+}
+
+.trix-button {
+  @apply p-2 hover:bg-gray-100 transition-colors;
+}
+
+.trix-button.trix-active {
+  @apply bg-gray-200;
+}
+
+trix-toolbar {
+  @apply sticky top-0 bg-white z-10 border-b border-gray-200 mb-4;
+}
+
+trix-editor {
+  @apply min-h-[200px] p-4 focus:outline-none;
+  caret-color: theme('colors.blue.600');
+}
+
+trix-editor:empty:not(:focus)::before {
+  @apply text-gray-400;
+}
+
+/* Hide file attachment UI */
+.trix-button-group--file-tools,
+[data-trix-action="attachFiles"],
+[data-trix-attribute="href"] {
+  display: none !important;
+}
